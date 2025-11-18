@@ -1,0 +1,162 @@
+/* -------- GLOBAL LAYOUT -------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #22c1c3, #111827 45%, #050816 80%);
+  color: #f9fafb;
+}
+
+/* -------- APP CARD -------- */
+.app {
+  background: rgba(15, 23, 42, 0.94); /* slate-900 */
+  padding: 24px 28px 30px;
+  border-radius: 18px;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(148, 163, 184, 0.3);
+  text-align: center;
+  width: 360px;
+  max-width: 95vw;
+}
+
+/* -------- TITLE -------- */
+.title {
+  margin: 0 0 18px;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e5e7eb;
+  text-shadow: 0 0 12px rgba(96, 165, 250, 0.7);
+}
+
+/* -------- TOP PANEL (INPUT + BUTTON) -------- */
+.top-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+#clientId {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s;
+}
+
+#clientId::placeholder {
+  color: #6b7280;
+}
+
+#clientId:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+  background: rgba(15, 23, 42, 1);
+}
+
+/* Primary button */
+#startBtn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #22c55e, #22d3ee);
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.45);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  white-space: nowrap;
+}
+
+#startBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.6);
+  filter: brightness(1.05);
+}
+
+#startBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(34, 211, 238, 0.4);
+}
+
+/* -------- STATUS TEXT -------- */
+#status {
+  min-height: 20px;
+  margin: 4px 0 10px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* -------- GRID -------- */
+#grid {
+  width: 300px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+/* Base cell */
+.cell {
+  width: 54px;
+  height: 54px;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  background: linear-gradient(145deg, #111827, #020617);
+  cursor: pointer;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(31, 41, 55, 0.9);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.9),
+    0 0 12px rgba(56, 189, 248, 0.4);
+  border-color: rgba(56, 189, 248, 0.8);
+}
+
+/* Safe cell (diamond) */
+.cell.safe {
+  background: radial-gradient(circle at 30% 20%, #bbf7d0, #22c55e 45%, #15803d 80%);
+  box-shadow:
+    0 10px 22px rgba(22, 163, 74, 0.7),
+    0 0 16px rgba(52, 211, 153, 0.8);
+  border-color: rgba(187, 247, 208, 0.9);
+}
+
+/* Mine cell */
+.cell.mine {
+  background: radial-gradient(circle at 30% 20%, #fecaca, #ef4444 45%, #7f1d1d 80%);
+  box-shadow:
+    0 10px 22px rgba(239, 68, 68, 0.7),
+    0 0 16px rgba(248, 113, 113, 0.9);
+  border-color: rgba(254, 202, 202, 0.9);
+}
